@@ -44,7 +44,7 @@ class SumDifferenceTestCase(APITestCase):
         eq_(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_get_str(self):
-        response = self.client.get(self.url, {'n': '10'})
+        response = self.client.get(self.url, {'n': '"10"'})
         eq_(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_get_not_number(self):
