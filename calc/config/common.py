@@ -9,12 +9,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 class Common(Configuration):
+    CALC_NATURAL_SUM_DIFFERENCE_LIMIT = 10
 
     INSTALLED_APPS = (
         'django.contrib.contenttypes',
 
         # Third party apps
         'rest_framework',
+
+        # Local apps
+        'calc.natural.apps.NaturalAppConfig',
     )
 
     # https://docs.djangoproject.com/en/2.0/topics/http/middleware/

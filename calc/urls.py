@@ -1,8 +1,6 @@
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
 
-router = DefaultRouter()
 
 urlpatterns = [
-    path('api/v1/', include(router.urls)),
+    path('api/v1/calc/', include('calc.natural.urls', namespace="calc")),
 ]
