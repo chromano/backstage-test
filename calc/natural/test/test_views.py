@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.urls import reverse
-from nose.tools import ok_, eq_
+from nose.tools import eq_
 from rest_framework.test import APITestCase
 from rest_framework import status
 
