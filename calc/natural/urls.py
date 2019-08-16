@@ -6,6 +6,7 @@ from .views import sum_difference
 router = DefaultRouter()
 app_name = "natural"
 urlpatterns = [
-    path('sum_difference', sum_difference, name="sum_difference"),
+    path('difference', sum_difference, name="sum_difference"),
+
     path('', include(router.urls)),
 ]

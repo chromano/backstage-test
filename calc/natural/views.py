@@ -8,9 +8,8 @@ from .serializers import SumDifferenceRequestSerializer, \
 from .services import calc_sum_difference
 
 
-@api_view(['GET'])
-def sum_difference(request):
-    req_serialization = SumDifferenceRequestSerializer(data=request.query_params)
+def _create_sum_difference(n):
+    req_serialization = SumDifferenceRequestSerializer(data={'n': n})
     req_serialization.is_valid(raise_exception=True)
 
     solution = calc_sum_difference(req_serialization.data['n'])
@@ -23,4 +22,19 @@ def sum_difference(request):
 
     result = SumDifferenceResponseSerializer(sum_difference)
 
+    return result.data
+
+
+def _list_sum_differences():
+    sum_differences = SumDifference.objects.all()
+    result = SumDifferenceResponseSerializer(sum_differences, many=True)
+
     return Response(result.data)
+
+
+@api_view(['GET'])
+def sum_difference(request):
+    if 'n' in request.query_params:
+        return _create_sum_difference(request.query_params['n'])
+
+    return _list_sum_differences()
