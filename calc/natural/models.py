@@ -11,3 +11,6 @@ class SumDifference(models.Model):
     ])
     solution = models.IntegerField()
     occurrences = models.IntegerField(default=1)
+
+    class Meta:
+        ordering = ['-datetime']
