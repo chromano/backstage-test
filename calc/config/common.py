@@ -37,7 +37,7 @@ class Common(Configuration):
     )
 
     DATABASES = {
-        'default': dj_database_url.config(default='sqlite://data.sqlite3')
+        'default': dj_database_url.config(default='sqlite:////code/data.sqlite3')
     }
 
     # General
